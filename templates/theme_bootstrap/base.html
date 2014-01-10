@@ -22,6 +22,12 @@
                 <script src="{% static "pinax/js/html5shiv.js" %}"></script>
             <![endif]-->
         {% endblock %}
+        
+        {% block script_base %}
+            <script src="{% block jquery_src %}{% static "pinax/js/jquery.js" %}{% endblock %}"></script>
+            <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+            <script src="{% static "pinax/js/theme.js" %}"></script>
+        {% endblock %}
 
         {% block extra_head_base %}
             {% block extra_head %}{% endblock %}
@@ -61,6 +67,7 @@
             {% block body_base %}
                 <div class="container">
                     {% include "_messages.html" %}
+                    {% include "_breadcrumb.html" %}
                     {% block body %}
                     {% endblock %}
                     {% block footer_base %}
@@ -73,12 +80,7 @@
             {% endblock %}
         </div>
 
-        {% block script_base %}
-            <script src="{% block jquery_src %}{% static "pinax/js/jquery.js" %}{% endblock %}"></script>
-            <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
-            <script src="{% static "pinax/js/theme.js" %}"></script>
-            {% block extra_script %}{% endblock %}
-        {% endblock %}
+        {% block extra_script %}{% endblock %}
 
         {% block extra_body_base %}
             {% block extra_body %}{% endblock %}

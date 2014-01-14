@@ -64,11 +64,19 @@
                     </div>
                 </div>
             {% endblock %}
-
+			
+			{% block header_base %}
+			<div class="header"></div>
+			{% endblock %}
+			
             {% block body_base %}
                 <div class="container">
+                	{% block messages %}
                     {% include "_messages.html" %}
+                    {% endblock %}
+                    {% block breadcrumb %}
                     {% include "_breadcrumb.html" %}
+                    {% endblock %}
                     {% block body %}
                     {% endblock %}
                     {% block footer_base %}

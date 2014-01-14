@@ -12,7 +12,7 @@ def theme(request):
     if Site._meta.installed:
         site = Site.objects.get_current()
         ctx.update({
-            "SITE_NAME": site.name,
+            "SITE_NAME": 'EASYDATA',
             "SITE_DOMAIN": site.domain
         })
     
